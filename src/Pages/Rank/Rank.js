@@ -1,5 +1,28 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
+
+import waveImg from '../../Images/wave.png';
+import { rankInfo } from '../../config.js';
+
+const topThree = rankInfo.splice(0, 3);
+
+const Rank = () => {
+	return (
+		<RankContatiner>
+			<UserCardContainer>
+				{topThree.map(user => (
+					<UserCard key={'top three' + user.name}>
+						<p>{user.name}</p>
+					</UserCard>
+				))}
+			</UserCardContainer>
+			<WaveBg>
+				<FirstWave />
+				<SecondWave />
+			</WaveBg>
+		</RankContatiner>
+	);
+};
 
 const RankContatiner = styled.div`
 	position: relative;
@@ -7,6 +30,30 @@ const RankContatiner = styled.div`
 	width: 100%;
 	max-height: 100%;
 	background-color: #fafafa;
+`;
+
+const UserCardContainer = styled.article`
+	width: 100%;
+	height: 655px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+`;
+
+const UserCard = styled.div`
+	position: relative;
+	top: 90px;
+	margin: 20px;
+	width: 250px;
+	height: 250px;
+	border-radius: 15px;
+	background-color: #fff;
+
+	p {
+		font-size: 1.2rem;
+	}
 `;
 
 const WaveBg = styled.div`
@@ -17,63 +64,50 @@ const WaveBg = styled.div`
 	background-color: #015ecc;
 `;
 
-const firstWave = styled.div`
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 200px;
-	background: url('https://www.covert.design/wp-content/uploads/2019/10/white-background-wave-2-e1571450471217.png');
-	background-size: 1200px 200px;
-	opacity: 0.025;
-	animation: ${animateFirstWave} 15s linear infinite;
-	opacity: 0.05;
-	animation-delay: 0s;
-	bottom: 0;
+const FirstWaveAnimation = keyframes`
+	0% {
+		background-position-x: 0;
+	}
+	100% {
+		background-position-x: 1000px;
+	}
 `;
 
-const secondWave = styled.div`
+const SecondWaveAnimation = keyframes`
+	0% {
+		background-position-x: 0;
+	}
+	100% {
+		background-position-x: -1000px;
+	}
+`;
+
+const FirstWave = styled.div`
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 200px;
-	background: url('https://www.covert.design/wp-content/uploads/2019/10/white-background-wave-2-e1571450471217.png');
-	background-size: 1200px 200px;
-	opacity: 0.025;
-	animation: animateSecondWave 5s linear infinite;
+	height: 250px;
+	background-image: url(${waveImg});
+	background-color: #015ecc;
+	background-size: 1000px 250px;
+	animation: ${FirstWaveAnimation} 15s linear infinite;
 	opacity: 0.075;
+	animation-delay: 0s;
+`;
+
+const SecondWave = styled.div`
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	width: 100%;
+	height: 250px;
+	background-image: url(${waveImg});
+	background-color: #015ecc;
+	background-size: 1000px 250px;
+	animation: ${SecondWaveAnimation} 5s linear infinite;
+	opacity: 0.05;
 	animation-delay: -3s;
-	bottom: 0;
 `;
-
-const animateFirstWave = keyframes`
-		0% {
-			background-position-x: 0;
-		}
-		100% {
-			background-position-x: 1200px;
-		}
-`;
-
-const animateSecondWave = keyframes`
-		0% {
-			background-position-x: 0;
-		}
-		100% {
-			background-position-x: 1200px;
-		}
-`;
-
-const Rank = memo(() => {
-	return (
-		<RankContatiner>
-			<WaveBg>
-				<firstWave />
-				<secondWave />
-			</WaveBg>
-		</RankContatiner>
-	);
-});
 
 export default Rank;
