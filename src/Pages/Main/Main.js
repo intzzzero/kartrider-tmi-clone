@@ -1,7 +1,14 @@
 import React, { memo, useState, useEffect } from 'react';
+import Navigation from '../../Components/Navigation/Navigation';
+import Footer from '../../Components/Footer/Footer';
 
 const Main = memo(() => {
-  return <div></div>;
+  return (
+    <>
+      <Navigation />
+      <Footer />
+    </>
+  );
 });
 
 export default Main;
