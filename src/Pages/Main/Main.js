@@ -47,7 +47,7 @@ const Main = memo(() => {
               </div>
 
               {modal && (
-                <Modal onOff={modal}>
+                <Modal>
                   <SignUp onClose={modalHandler} />
                 </Modal>
               )}
