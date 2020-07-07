@@ -58,5 +58,65 @@ export const rankInfo = [
 		rank: 10,
 		winRatio: 32,
 		retireRatio: 12
+	},
+	{
+		name: '배고프다',
+		rank: 11,
+		winRatio: 37,
+		retireRatio: 4
+	},
+	{
+		name: '뭐먹을까',
+		rank: 12,
+		winRatio: 30,
+		retireRatio: 9
+	},
+	{
+		name: '맥도날드',
+		rank: 13,
+		winRatio: 29,
+		retireRatio: 6
+	},
+	{
+		name: '버거킹',
+		rank: 14,
+		winRatio: 38,
+		retireRatio: 8
+	},
+	{
+		name: '롯데리아',
+		rank: 15,
+		winRatio: 34,
+		retireRatio: 15
+	},
+	{
+		name: '파파존스',
+		rank: 16,
+		winRatio: 33,
+		retireRatio: 11
+	},
+	{
+		name: '도미노피자',
+		rank: 17,
+		winRatio: 30,
+		retireRatio: 2
+	},
+	{
+		name: '피자헛',
+		rank: 18,
+		winRatio: 35,
+		retireRatio: 7
+	},
+	{
+		name: '미스터피자',
+		rank: 19,
+		winRatio: 34,
+		retireRatio: 9
+	},
+	{
+		name: '명동칼국수',
+		rank: 20,
+		winRatio: 28,
+		retireRatio: 16
 	}
 ];
