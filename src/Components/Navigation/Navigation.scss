@@ -16,6 +16,7 @@
     .header-inner {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       position: relative;
       width: 1200px;
       height: 48px;
@@ -38,15 +39,41 @@
         display: flex;
         padding-left: 10px;
       }
+
+      .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+
+        > img {
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          border-radius: 50%;
+        }
+      }
+
+      .login {
+        position: absolute;
+        right: 100px;
+        bottom: 40%;
+        font-family: 'Rajdhani';
+        font-size: 14px;
+      }
     }
 
     .navigation {
       display: flex;
-      background-color: #005fcc;
+      background-color: black;
 
       .navigation-inner {
         display: flex;
-        width: 1200px;
         height: 55px;
         margin: auto;
         color: #fff;
@@ -65,28 +92,64 @@
             > li {
               display: flex;
               align-items: center;
+              justify-content: center;
               height: 55px;
               font-size: 14px;
               width: 120px;
 
               .active {
-                box-sizing: border-box;
-                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-                > a {
-                  position: relative;
-                  padding: 13px 30px;
-                  font-weight: bold;
-                  font-size: 14px;
+                .btn {
+                  display: inline-block;
+                  width: 100%;
+                  max-width: 160px;
                   color: #fff;
-                  opacity: 0.5;
+                  cursor: pointer;
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 45px;
+                  margin: 0 auto 2em;
+                  margin: 0 20px 20px 0;
+                  position: relative;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  vertical-align: middle;
+                }
+
+                .btn-1 {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-weight: 100;
+                  position: relative;
+                  top: 10px;
+                  & svg {
+                    height: 45px;
+                    position: absolute;
+                    width: 90px;
+                  }
+
+                  & rect {
+                    fill: none;
+                    // stroke: #fff;
+                    stroke-width: 5;
+                    stroke-dasharray: 500, 0;
+                  }
 
                   &:hover {
-                    content: '';
-                    color: white;
-                    opacity: 1;
-                    transition: all 0.25s ease-in;
-                    border-bottom: 5px solid white;
+                    stroke: #fff;
+                    font-weight: 900;
+                    letter-spacing: 1px;
+                  }
+
+                  &:hover rect {
+                    stroke-width: 10;
+                    stroke-dasharray: 50, 155;
+                    stroke-dashoffset: 50;
+                    transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
                   }
                 }
               }
@@ -94,190 +157,6 @@
           }
         }
       }
-    }
-  }
-  .content {
-    display: flex;
-
-    .content-inner {
-      position: relative;
-      width: 100%;
-      height: 700px;
-      margin-top: -55px;
-      background-image: url(https://tmi.nexon.com/img/main_bg1.png);
-      background-size: cover;
-      background-position: 50%;
-      overflow: hidden;
-
-      .mask-inner {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        width: 1200px;
-        margin: auto;
-
-        .home-title {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          height: 700px;
-
-          .main-message {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 200px;
-
-            > p {
-              display: flex;
-              font-size: 40px;
-              font-weight: 400;
-              color: white;
-              padding-bottom: 15px;
-
-              > a {
-                font-size: 28px;
-                display: flex;
-                color: #fff;
-              }
-            }
-
-            .main-copy {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              color: white;
-              margin-top: 15px;
-              width: 280px;
-              line-height: 26px;
-              background: rgba(0, 0, 0, 0.3);
-              border-radius: 15px;
-
-              > p {
-                font-size: 18px;
-                font-weight: 400;
-              }
-            }
-          }
-
-          .search-form {
-            display: flex;
-            width: 840px;
-            cursor: pointer;
-            position: absolute;
-            top: 62%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 1s;
-            transition: width 0.5s;
-            height: 67px;
-            background: transparent;
-            box-sizing: border-box;
-            border-radius: 33.5px;
-            border: 4px solid #fff;
-            padding: 8px;
-
-            > form {
-              position: relative;
-
-              .select {
-                display: flex;
-                position: absolute;
-                top: 0;
-                padding-left: 30px;
-
-                > input {
-                  width: 600px;
-                  height: 44px;
-                  border: 0;
-                  display: block;
-                  font-size: 24px;
-                  font-weight: 400;
-                  padding: 0 25px;
-                  color: #fff;
-                  background: transparent;
-                  // opacity: 0;
-                  transition: opacity 0.5s;
-                  font-family: Noto Sans KR;
-                }
-
-                > label {
-                  display: block;
-                  box-sizing: border-box;
-                  top: 7px;
-                  width: 100px;
-                  height: 44px;
-                  line-height: 44px;
-                  font-weight: bold;
-                  font-size: 16px;
-                  color: #fff;
-                  background: transparent;
-                  z-index: -1;
-                  border-right: 1px solid #fff;
-                }
-
-                > button {
-                  cursor: pointer;
-                  font-size: 24px;
-                  font-weight: 400;
-                  color: #fff;
-                  background-color: transparent;
-                  border: none;
-
-                  > img {
-                    width: 45px;
-                  }
-                }
-              }
-            }
-          }
-          .left-pic {
-            position: relative;
-            bottom: 100px;
-            margin-left: -580px;
-          }
-
-          .right-pic {
-            position: relative;
-            bottom: 420px;
-            left: 565px;
-            margin-right: -250px;
-          }
-
-          .left-bg {
-            position: absolute;
-            width: 475px;
-            height: 317px;
-            bottom: 180px;
-            left: 160px;
-            margin-left: -800px;
-            background-image: url(https://tmi.nexon.com/img/main_left_bg.png);
-            background-size: cover;
-            background-position: 50%;
-          }
-
-          .right-bg {
-            position: absolute;
-            width: 527px;
-            height: 317px;
-            top: 220px;
-            right: 260px;
-            margin-right: -900px;
-            background-image: url(https://tmi.nexon.com/img/main_right_bg.png);
-            background-size: cover;
-            background-position: 50%;
-          }
-        }
-      }
-    }
-    .mask {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.3;
-      background-color: #005fcc;
     }
   }
 }

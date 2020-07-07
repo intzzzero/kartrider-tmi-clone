@@ -13,6 +13,13 @@ const Navigation = memo(() => {
           <Link to='/main' className='logo-tmi'>
             <img src='https://tmi.nexon.com/img/assets/tmi_logo_default_b.svg' alt='logo-tmi' />
           </Link>
+
+          <div className='avatar'>
+            <img
+              src='https://lh3.googleusercontent.com/proxy/WW65AyaUQ6jSueAlwVpTccSse9tizDGrnTosAb8xG-joN9q12Da4IhmFI2T3P8RHpDeeKDMXUkScy92Qz3ZWM6_Gz4M4qjAGex_TTZZqC45DwVZbWC2885tS'
+              alt='avatar'
+            />
+          </div>
         </div>
 
         <div className='navigation'>
@@ -21,70 +28,65 @@ const Navigation = memo(() => {
               <ul>
                 <li>
                   <div className='active'>
-                    <Link to='/main'>홈</Link>
+                    <Link to='/main' className='btn btn-1'>
+                      HOME
+                      <svg>
+                        <rect x='0' y='0' fill='none' width='100%' height='100%' />
+                      </svg>
+                    </Link>
                   </div>
                 </li>
                 <li>
                   <div className='active'>
-                    <Link to='/rank'>랭킹</Link>
+                    <Link to='/rank' className='btn btn-1'>
+                      RANK
+                      <svg>
+                        <rect x='0' y='0' fill='none' width='100%' height='100%' />
+                      </svg>
+                    </Link>
                   </div>
                 </li>
                 <li>
                   <div className='active'>
-                    <Link to='/cart'>카트</Link>
+                    <Link to='/cart' className='btn btn-1'>
+                      CART
+                      <svg>
+                        <rect x='0' y='0' fill='none' width='100%' height='100%' />
+                      </svg>
+                    </Link>
                   </div>
                 </li>
                 <li>
                   <div className='active'>
-                    <Link to='/track'>트랙</Link>
+                    <Link to='/track' className='btn btn-1'>
+                      TRACK
+                      <svg>
+                        <rect x='0' y='0' fill='none' width='100%' height='100%' />
+                      </svg>
+                    </Link>
                   </div>
                 </li>
                 <li>
                   <div className='active'>
-                    <Link to='/league'>리그</Link>
+                    <Link to='/league' className='btn btn-1'>
+                      LEAGUE
+                      <svg>
+                        <rect x='0' y='0' fill='none' width='100%' height='100%' />
+                      </svg>
+                    </Link>
                   </div>
                 </li>
                 <li>
                   <div className='active'>
-                    <Link to='/lab'>연구소</Link>
+                    <Link to='/lab' className='btn btn-1'>
+                      LAB
+                      <svg>
+                        <rect x='0' y='0' fill='none' width='100%' height='100%' />
+                      </svg>
+                    </Link>
                   </div>
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className='content'>
-          <div className='content-inner'>
-            <div className='mask'></div>
-            <div className='mask-inner'>
-              <div className='home-title'>
-                <div className='main-message'>
-                  <p>
-                    <Link to='https://developers.nexon.com/'>넥슨 Open API 기반</Link>
-                  </p>
-                  <p>카트라이더 전적 검색</p>
-                  <div className='main-copy'>
-                    <p>STAY HOME with TMI</p>
-                  </div>
-                </div>
-
-                <div className='search-form'>
-                  <form>
-                    <div className='select'>
-                      <label>유저</label>
-                      <input type='text' placeholder='카트라이더 닉네임을 입력' />
-                      <button>
-                        <img src='https://tmi.nexon.com/img/assets/tmi_logo_default.svg' alt='buttonPic'></img>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-                <img src='https://tmi.nexon.com/img/assets/covid_left.png' alt='leftPic' className='left-pic'></img>
-                <img src='https://tmi.nexon.com/img/assets/covid_right.png' alt='rightPic' className='right-pic'></img>
-                <span className='left-bg'></span>
-                <span className='right-bg'></span>
-              </div>
             </div>
           </div>
         </div>
