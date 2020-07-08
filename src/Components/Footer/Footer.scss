@@ -1,0 +1,53 @@
+.footer-container {
+  padding: 18px 0 17px 0;
+  background-color: black;
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin: 0 auto;
+
+    .logos {
+      display: flex;
+      align-items: center;
+
+      > img {
+        width: 140px;
+        opacity: 1;
+      }
+
+      .copy {
+        display: inline-block;
+        width: 100%;
+        height: 25px;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 25px;
+        padding-left: 10px;
+        border-left: 1px solid white;
+      }
+    }
+
+    .info {
+      display: flex;
+
+      > ul {
+        display: flex;
+        flex-direction: row;
+
+        > li {
+          padding-right: 10px;
+
+          > a {
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

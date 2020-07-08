@@ -1,0 +1,201 @@
+.main-content {
+  display: flex;
+
+  .login {
+    position: absolute;
+    right: 155px;
+    top: 15px;
+    border: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Rajdhani';
+    background-color: white;
+    z-index: 100;
+  }
+
+  .content-inner {
+    position: relative;
+    width: 100%;
+    margin-top: -55px;
+    background-image: url(https://tmi.nexon.com/img/main_bg1.png);
+    background-size: cover;
+    background-position: 50%;
+    overflow: hidden;
+
+    .mask-inner {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 1200px;
+      margin: auto;
+
+      .home-title {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 700px;
+
+        .main-message {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 200px;
+
+          > p {
+            display: flex;
+            color: white;
+            font-size: 40px;
+            font-weight: 400;
+            padding-bottom: 15px;
+
+            > a {
+              display: flex;
+              color: #fff;
+              font-size: 28px;
+            }
+          }
+
+          .main-copy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 280px;
+            color: white;
+            margin-top: 15px;
+            line-height: 26px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+
+            > p {
+              font-size: 18px;
+              font-weight: 400;
+            }
+          }
+        }
+
+        .search-form {
+          display: flex;
+          position: absolute;
+          width: 840px;
+          height: 67px;
+          top: 62%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: all 1s;
+          transition: width 0.5s;
+          background: transparent;
+          box-sizing: border-box;
+          border-radius: 33.5px;
+          border: 4px solid #fff;
+          padding: 8px;
+          cursor: pointer;
+
+          > form {
+            position: relative;
+
+            .select {
+              display: flex;
+              position: absolute;
+              top: 0;
+              padding-left: 30px;
+
+              > input {
+                display: block;
+                border: none;
+                width: 600px;
+                height: 44px;
+                color: #fff;
+                font-size: 24px;
+                font-weight: 400;
+                font-family: 'Rajdhani';
+                padding: 0 25px;
+                background: transparent;
+                transition: opacity 0.5s;
+
+                &::placeholder {
+                  color: #fff;
+                  opacity: 0.8;
+                }
+              }
+
+              > label {
+                display: block;
+                top: 7px;
+                width: 100px;
+                height: 44px;
+                box-sizing: border-box;
+                color: #fff;
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 44px;
+                background: transparent;
+                border-right: 1px solid #fff;
+                z-index: -1;
+              }
+
+              > button {
+                border: none;
+                font-size: 24px;
+                font-weight: 400;
+                color: #fff;
+                background-color: transparent;
+                cursor: pointer;
+
+                > img {
+                  width: 45px;
+                }
+              }
+            }
+          }
+        }
+        .left-pic {
+          position: relative;
+          bottom: 100px;
+          margin-left: -580px;
+        }
+
+        .right-pic {
+          position: relative;
+          bottom: 420px;
+          left: 565px;
+          margin-right: -250px;
+        }
+
+        .left-bg {
+          position: absolute;
+          width: 475px;
+          height: 317px;
+          bottom: 180px;
+          left: 160px;
+          margin-left: -800px;
+          background-image: url(https://tmi.nexon.com/img/main_left_bg.png);
+          background-size: cover;
+          background-position: 50%;
+        }
+
+        .right-bg {
+          position: absolute;
+          width: 527px;
+          height: 317px;
+          top: 220px;
+          right: 260px;
+          margin-right: -900px;
+          background-image: url(https://tmi.nexon.com/img/main_right_bg.png);
+          background-size: cover;
+          background-position: 50%;
+        }
+      }
+    }
+  }
+
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-color: #005fcc;
+  }
+}

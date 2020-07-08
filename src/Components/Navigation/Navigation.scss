@@ -1,0 +1,162 @@
+.nav-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 1000px;
+  overflow-y: hidden;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    z-index: 20;
+
+    .header-inner {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      position: relative;
+      width: 1200px;
+      height: 48px;
+      margin: 0 auto;
+
+      .logo-games {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100px;
+        height: 48px;
+        padding-left: 8px;
+
+        > img {
+          padding-right: 10px;
+        }
+      }
+
+      .logo-tmi {
+        display: flex;
+        padding-left: 10px;
+      }
+
+      .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+
+        > img {
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          border-radius: 50%;
+        }
+      }
+
+      .login {
+        position: absolute;
+        right: 100px;
+        bottom: 40%;
+        font-family: 'Rajdhani';
+        font-size: 14px;
+      }
+    }
+
+    .navigation {
+      display: flex;
+      background-color: black;
+
+      .navigation-inner {
+        display: flex;
+        height: 55px;
+        margin: auto;
+        color: #fff;
+        z-index: 15;
+
+        .navigation-tab {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          > ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            > li {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 120px;
+              height: 55px;
+              font-size: 14px;
+
+              .active {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .btn {
+                  display: inline-block;
+                  position: relative;
+                  width: 100%;
+                  max-width: 160px;
+                  margin: 0 auto 2em;
+                  margin: 0 20px 20px 0;
+                  line-height: 45px;
+                  color: #fff;
+                  font-size: 16px;
+                  font-weight: 400;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  vertical-align: middle;
+                  cursor: pointer;
+                }
+
+                .btn-1 {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  position: relative;
+                  top: 10px;
+                  font-weight: 100;
+
+                  & svg {
+                    width: 90px;
+                    height: 45px;
+                    position: absolute;
+                  }
+
+                  & rect {
+                    fill: none;
+                    stroke-width: 5;
+                    stroke-dasharray: 500, 0;
+                  }
+
+                  &:hover {
+                    stroke: #fff;
+                    font-weight: 900;
+                    letter-spacing: 1px;
+                  }
+
+                  &:hover rect {
+                    stroke-width: 10;
+                    stroke-dasharray: 50, 155;
+                    stroke-dashoffset: 50;
+                    transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
