@@ -2,13 +2,21 @@ import React, { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navigation.scss';
 
-const navItem = ['HOME', 'RANK', 'CART', 'TRACK', 'LEAGUE', 'LAB'];
+const navItem = [
+  { id: 0, name: 'HOME', url: '/main' },
+  { id: 1, name: 'RANK', url: '/rank' },
+  { id: 2, name: 'CART', url: '/cart' },
+  { id: 3, name: 'TRACK', url: '/track' },
+  { id: 4, name: 'LEAGUE', url: '/league' },
+  { id: 5, name: 'LAB', url: '/lab' },
+];
+
 const navView = navItem.map((data) => {
   return (
-    <li>
+    <li key={data.id}>
       <div className='active'>
-        <Link to='/main' className='btn btn-1'>
-          {data}
+        <Link to={data.url} className='btn btn-1'>
+          {data.name}
           <svg>
             <rect x='0' y='0' fill='none' width='100%' height='100%' />
           </svg>
