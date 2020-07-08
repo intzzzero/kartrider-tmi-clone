@@ -7,7 +7,7 @@ const Footer = memo(() => {
     <div className='footer-container'>
       <div className='footer'>
         <div className='logos'>
-          <img src='https://tmi.nexon.com/img/assets/lab_logo.svg' alt='logo' />
+          <img alt='logo' src='https://tmi.nexon.com/img/assets/lab_logo.svg' />
           <span className='copy'>Data based on NEXON DEVELOPERS</span>
         </div>
         <div className='info'>

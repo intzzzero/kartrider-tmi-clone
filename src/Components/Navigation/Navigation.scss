@@ -8,8 +8,8 @@
 
   .header {
     display: flex;
-    width: 100%;
     flex-direction: column;
+    width: 100%;
     background-color: #fff;
     z-index: 20;
 
@@ -26,9 +26,9 @@
         display: flex;
         position: relative;
         align-items: center;
-        padding-left: 8px;
-        height: 48px;
         width: 100px;
+        height: 48px;
+        padding-left: 8px;
 
         > img {
           padding-right: 10px;
@@ -93,9 +93,9 @@
               display: flex;
               align-items: center;
               justify-content: center;
+              width: 120px;
               height: 55px;
               font-size: 14px;
-              width: 120px;
 
               .active {
                 display: flex;
@@ -104,37 +104,37 @@
 
                 .btn {
                   display: inline-block;
+                  position: relative;
                   width: 100%;
                   max-width: 160px;
-                  color: #fff;
-                  cursor: pointer;
-                  font-size: 16px;
-                  font-weight: 400;
-                  line-height: 45px;
                   margin: 0 auto 2em;
                   margin: 0 20px 20px 0;
-                  position: relative;
+                  line-height: 45px;
+                  color: #fff;
+                  font-size: 16px;
+                  font-weight: 400;
                   text-decoration: none;
                   text-transform: uppercase;
                   vertical-align: middle;
+                  cursor: pointer;
                 }
 
                 .btn-1 {
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  font-weight: 100;
                   position: relative;
                   top: 10px;
+                  font-weight: 100;
+
                   & svg {
+                    width: 90px;
                     height: 45px;
                     position: absolute;
-                    width: 90px;
                   }
 
                   & rect {
                     fill: none;
-                    // stroke: #fff;
                     stroke-width: 5;
                     stroke-dasharray: 500, 0;
                   }

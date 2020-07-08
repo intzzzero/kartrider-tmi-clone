@@ -1,34 +1,25 @@
 import React, { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Main.scss';
 import Navigation from '../../Components/Navigation/Navigation';
-import Footer from '../../Components/Footer/Footer';
-import SignUp from '../../Pages/Signup/Signup';
 import Modal from '../../modal';
+import SignUp from '../../Pages/Signup/Signup';
+import Footer from '../../Components/Footer/Footer';
+import './Main.scss';
 
 const Main = memo(() => {
   const [id, setID] = useState('');
   const [profile, setProfile] = useState('');
-  const [modal, setModal] = useState(false);
-  const [login, setLogin] = useState(false);
-
-  const modalHandler = (e) => {
-    const { name } = e.target;
-    if (name === 'open') {
-      setModal(true);
-    } else {
-      setModal(false);
-    }
-  };
+  const [isModalActive, setModalActive] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
       <Navigation />
       <div className='main-content'>
-        {login ? (
+        {isLoggedIn ? (
           <button className='login'>안녕하세요!</button>
         ) : (
-          <button className='login' name='open' onClick={modalHandler}>
+          <button className='login' name='open' onClick={() => setModalActive(true)}>
             로그인
           </button>
         )}
@@ -46,9 +37,9 @@ const Main = memo(() => {
                 </div>
               </div>
 
-              {modal && (
+              {isModalActive && (
                 <Modal>
-                  <SignUp onClose={modalHandler} />
+                  <SignUp onClose={() => setModalActive(false)} />
                 </Modal>
               )}
 
@@ -58,13 +49,13 @@ const Main = memo(() => {
                     <label>유저</label>
                     <input type='text' placeholder='카트라이더 닉네임을 입력' />
                     <button>
-                      <img src='https://tmi.nexon.com/img/assets/tmi_logo_default.svg' alt='buttonPic'></img>
+                      <img alt='buttonPic' src='https://tmi.nexon.com/img/assets/tmi_logo_default.svg' />
                     </button>
                   </div>
                 </form>
               </div>
-              <img src='https://tmi.nexon.com/img/assets/covid_left.png' alt='leftPic' className='left-pic'></img>
-              <img src='https://tmi.nexon.com/img/assets/covid_right.png' alt='rightPic' className='right-pic'></img>
+              <img className='left-pic' alt='leftPic' src='https://tmi.nexon.com/img/assets/covid_left.png' />
+              <img className='right-pic' alt='rightPic' src='https://tmi.nexon.com/img/assets/covid_right.png' />
               <span className='left-bg'></span>
               <span className='right-bg'></span>
             </div>

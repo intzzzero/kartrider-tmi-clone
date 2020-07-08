@@ -10,16 +10,16 @@
     box-shadow: 10px 10px 10px grey;
 
     .logo-container {
-      background-color: #1c7ed6;
-      height: 5rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 5rem;
+      background-color: #1c7ed6;
 
       .logo {
         color: white;
-        font-family: 'Rajdhani';
         font-size: 2.4rem;
+        font-family: 'Rajdhani';
         letter-spacing: 5px;
         text-decoration: none;
       }
@@ -28,13 +28,13 @@
     .contents {
       display: flex;
       flex-direction: column;
+      height: auto;
       background: white;
       padding: 2rem;
-      height: auto;
 
       > span {
-        font-family: 'Rajdhani';
         font-size: 1.5rem;
+        font-family: 'Rajdhani';
         padding-bottom: 20px;
       }
 
@@ -55,13 +55,13 @@
       }
 
       > button {
-        font-family: 'Rajdhani';
-        font-size: 15px;
-        font-weight: bold;
-        color: white;
-        border: none;
         width: 100%;
         height: 40px;
+        border: none;
+        color: white;
+        font-size: 15px;
+        font-family: 'Rajdhani';
+        font-weight: bold;
         margin-top: 15px;
         border-radius: 5px;
         background-color: #1c7ed6;
@@ -69,6 +69,7 @@
     }
   }
 }
+
 .blur {
   position: absolute;
   top: 0;
