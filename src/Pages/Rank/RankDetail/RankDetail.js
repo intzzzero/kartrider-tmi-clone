@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 
 import Navigation from '../../../Components/Navigation/Navigation';
@@ -9,6 +9,11 @@ import { rankInfo } from '../../../config.js';
 
 const RankDetail = () => {
 	const [ speedMode, setSpeedMode ] = useState(2);
+
+	useEffect(() => {
+		console.log();
+	}, []);
+
 	const defaultUserImg =
 		'https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/character/42c729e64e31aea803e4881432f7b95129ce97535c29e4f9a72919a9f267b418.png';
 

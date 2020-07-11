@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import CircleProgressProvider from '../CircleProgress/CircleProgressProvider';
 import '../CircleProgress/CircleProgressResetStyle.css';
@@ -11,7 +12,7 @@ const TopUsers = () => {
 	return (
 		<UserCardContainer>
 			{topThree.map(user => (
-				<UserCard key={'top three' + user.name}>
+				<UserCard to={`/rank/${user.rank}`} key={'top three' + user.name}>
 					<UserNameWrapper>
 						<div />
 						<p>{user.name}</p>
@@ -55,7 +56,7 @@ const UserCardContainer = styled.article`
 	z-index: 10;
 `;
 
-const UserCard = styled.div`
+const UserCard = styled(Link)`
 	position: relative;
 	top: 90px;
 	margin: 20px;
@@ -68,7 +69,8 @@ const UserCard = styled.div`
 	&:hover {
 		color: ${primaryColor};
 
-		p {
+		p,
+		span {
 			color: ${primaryColor};
 		}
 	}
@@ -76,6 +78,7 @@ const UserCard = styled.div`
 
 const UserNameWrapper = styled.div`
 	border-bottom: 1px solid ${primaryColor};
+	cursor: pointer;
 
 	div {
 		width: 100%;

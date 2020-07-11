@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { rankInfo } from '../../../config.js';
 
 const OtherUsers = () => {
@@ -12,7 +13,7 @@ const OtherUsers = () => {
 				<p>닉네임</p>
 			</div>
 			{otherUsers.map(user => (
-				<OtherUsersCard key={'other users' + user.name}>
+				<OtherUsersCard to={`/rank/${user.rank}`} key={'other users' + user.name}>
 					<div>
 						<p>{user.rank}</p>
 					</div>
@@ -64,7 +65,7 @@ const OtherUsersContainer = styled.article`
 	}
 `;
 
-const OtherUsersCard = styled.div`
+const OtherUsersCard = styled(Link)`
 	height: 42px;
 	background-color: #fff;
 	border: 1px solid rgba(0, 0, 0, 0.05);
@@ -81,15 +82,20 @@ const OtherUsersCard = styled.div`
 	div:first-child {
 		font-size: 1rem;
 		width: 120px;
-		text-align: center;
 		font-weight: 600;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	div:last-child {
 		font-size: 1rem;
 		width: 200px;
-		text-align: left;
+		height: inherit;
 		margin-left: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 `;
 
