@@ -7,6 +7,8 @@ import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../../../Components/Navigation/Navigation';
 import Footer from '../../../Components/Footer/Footer';
 import RankChart from './RankChart/RankChart';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import CircleProgressProvider from '../CircleProgress/CircleProgressProvider';
 
 import { rankInfo } from '../../../config.js';
 
@@ -50,7 +52,42 @@ const RankDetail = () => {
 				</NameCard>
 				<RainbowBg />
 				<section>
-					<CircleChartWrapper />
+					<CircleChartWrapper>
+						{userInfo.map(user => (
+							<CircleContainer>
+								<CircleWrapper>
+									<p>승률</p>
+									<CircleProgressProvider valueStart={0} valueEnd={user.winRatio}>
+										{value => <CircularProgressbar value={value} text={`${value}%`} />}
+									</CircleProgressProvider>
+								</CircleWrapper>
+								<CircleWrapper>
+									<p>완주율</p>
+									<CircleProgressProvider valueStart={0} valueEnd={100 - user.retireRatio}>
+										{value => (
+											<CircularProgressbar
+												value={value}
+												text={`${value}%`}
+												styles={completeRatioStyle}
+											/>
+										)}
+									</CircleProgressProvider>
+								</CircleWrapper>
+								<CircleWrapper>
+									<p>리타이어율</p>
+									<CircleProgressProvider valueStart={0} valueEnd={user.retireRatio}>
+										{value => (
+											<CircularProgressbar
+												value={value}
+												text={`${value}%`}
+												styles={retireRatioStyle}
+											/>
+										)}
+									</CircleProgressProvider>
+								</CircleWrapper>
+							</CircleContainer>
+						))}
+					</CircleChartWrapper>
 					<CurrentFiftyGames />
 					<CommentWrapper />
 				</section>
@@ -82,7 +119,7 @@ const RankDetailContainer = styled.main`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding-top: 50px;
+	padding: 50px 0;
 
 	& > section {
 		width: 70%;
@@ -225,7 +262,59 @@ const RainbowBg = styled.div`
 	margin-bottom: 25px;
 `;
 
-const CircleChartWrapper = styled.div`background-color: #fff;`;
+const CircleChartWrapper = styled.div`
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const CircleContainer = styled.div`display: flex;`;
+
+const CircleWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 12px;
+
+	p {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: rgba(0, 0, 0, 0.7);
+		margin-bottom: 20px;
+	}
+`;
+
+const CircleSeperateLine = styled.div`
+	height: 80px;
+	width: 1px;
+	background-color: rgba(0, 0, 0, 0.05);
+	position: relative;
+	margin: 20px auto;
+`;
+
+const retireRatioStyle = {
+	path: {
+		stroke: '#F62558',
+		strokeLinecap: 'butt',
+		transition: 'stroke-dashoffset 1.4s ease 0s'
+	},
+	text: {
+		fill: '#F62558'
+	}
+};
+
+const completeRatioStyle = {
+	path: {
+		stroke: '#9CD728',
+		strokeLinecap: 'butt',
+		transition: 'stroke-dashoffset 0.5s ease 0s'
+	},
+	text: {
+		fill: '#9CD728'
+	}
+};
 
 const CurrentFiftyGames = styled.div`
 	margin: 0 10px;
