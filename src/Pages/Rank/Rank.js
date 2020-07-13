@@ -17,7 +17,7 @@ const Rank = () => {
 		<Fragment>
 			{rankingGuideShown && <RankingGuide rankingGuideToggle={() => setRankingGuideShown(!rankingGuideShown)} />}
 			<Navigation />
-			<RankContatiner>
+			<RankContainer>
 				<RankPageInfo rankingGuideToggle={() => setRankingGuideShown(!rankingGuideShown)} />
 				<TopUsers />
 				<WaveBg>
@@ -25,7 +25,7 @@ const Rank = () => {
 					<SecondWave />
 				</WaveBg>
 				<OtherUsers />
-			</RankContatiner>
+			</RankContainer>
 			<Footer />
 		</Fragment>
 	);
@@ -33,7 +33,7 @@ const Rank = () => {
 
 const deepPrimaryColor = '#015ecc';
 
-const RankContatiner = styled.div`
+const RankContainer = styled.div`
 	position: relative;
 	width: 100%;
 	max-height: 100%;

@@ -6,7 +6,6 @@ import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 import Navigation from '../../../Components/Navigation/Navigation';
 import Footer from '../../../Components/Footer/Footer';
-import RankChart from './RankChart/RankChart';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import CircleProgressProvider from '../CircleProgress/CircleProgressProvider';
 
@@ -22,8 +21,6 @@ const RankDetail = () => {
 		'https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/character/42c729e64e31aea803e4881432f7b95129ce97535c29e4f9a72919a9f267b418.png';
 
 	const speedModeText = [ '빠름', '매우빠름', '무한부스터' ];
-
-	console.log(userInfo);
 
 	return (
 		<Fragment>
