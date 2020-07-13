@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import Navigation from '../../Components/Navigation/Navigation';
@@ -9,9 +9,17 @@ import TopUsers from './TopUsers/TopUsers';
 import OtherUsers from './OtherUsers/OtherUsers';
 
 import waveImg from '../../Images/wave.png';
+import { urls } from '../../config';
 
 const Rank = () => {
 	const [ rankingGuideShown, setRankingGuideShown ] = useState(false);
+	const [ indiRankList, setIndiRankList ] = useState([]);
+
+	useEffect(() => {
+		fetch(urls.indiRankUrl).then(res => res.json()).then(res => setIndiRankList(res.indi_rank_list));
+	}, []);
+
+	console.log(indiRankList);
 
 	return (
 		<Fragment>
@@ -19,12 +27,12 @@ const Rank = () => {
 			<Navigation />
 			<RankContainer>
 				<RankPageInfo rankingGuideToggle={() => setRankingGuideShown(!rankingGuideShown)} />
-				<TopUsers />
+				<TopUsers indiRankList={indiRankList} />
 				<WaveBg>
 					<FirstWave />
 					<SecondWave />
 				</WaveBg>
-				<OtherUsers />
+				<OtherUsers indiRankList={indiRankList} />
 			</RankContainer>
 			<Footer />
 		</Fragment>
