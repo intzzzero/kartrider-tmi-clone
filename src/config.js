@@ -281,8 +281,8 @@ export const userDetail = {
 };
 
 export const urls = {
-	indiRankUrl: 'http://10.58.3.168:8000/rank/indiranklist',
-	rankDetailUrl: 'http://113.124.119.194:8000/rank/detail/'
+	indiRankUrl: 'http://13.124.119.194:8000/rank/indiranklist',
+	rankDetailUrl: 'http://13.124.119.194:8000/rank/detail/'
 };
 
 export const defaultUserImg =

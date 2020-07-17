@@ -22,7 +22,7 @@ const RankDetail = () => {
 	const id = Number(useParams().id);
 
 	useEffect(() => {
-		fetch(urls.rankDetailUrl + id).then(res => res.json()).then(res => {
+		fetch(`http://13.124.119.194:8000/rank/detail/${id}`).then(res => res.json()).then(res => {
 			setRecord(res);
 			setCharacter(res.character);
 		});
