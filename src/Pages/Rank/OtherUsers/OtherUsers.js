@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { rankInfo } from '../../../config.js';
+// import { rankInfo } from '../../../config.js';
 
-const OtherUsers = () => {
-	const otherUsers = rankInfo.slice(3);
+const OtherUsers = ({ indiRankList }) => {
+	const [ otherRankUsers, setOtherRankUsers ] = useState([]);
+	useEffect(
+		() => {
+			setOtherRankUsers(indiRankList.slice(3));
+		},
+		[ indiRankList ]
+	);
 
 	return (
 		<OtherUsersContainer>
@@ -12,13 +18,13 @@ const OtherUsers = () => {
 				<p>#</p>
 				<p>닉네임</p>
 			</div>
-			{otherUsers.map(user => (
-				<OtherUsersCard to={`/rank/${user.rank}`} key={'other users' + user.name}>
+			{otherRankUsers.map(user => (
+				<OtherUsersCard to={`/rank/${user.access_id}`} key={'other users' + user.nickname}>
 					<div>
 						<p>{user.rank}</p>
 					</div>
 					<div>
-						<p>{user.name}</p>
+						<p>{user.nickname}</p>
 					</div>
 				</OtherUsersCard>
 			))}

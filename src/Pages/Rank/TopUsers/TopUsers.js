@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import CircleProgressProvider from '../CircleProgress/CircleProgressProvider';
 import '../CircleProgress/CircleProgressResetStyle.css';
-import { rankInfo } from '../../../config.js';
+// import { rankInfo } from '../../../config.js';
 
-const TopUsers = () => {
-	const topThree = rankInfo.slice(0, 3);
+const TopUsers = ({ indiRankList }) => {
+	const [ topThree, setTopThree ] = useState([]);
+
+	useEffect(
+		() => {
+			setTopThree(indiRankList.slice(0, 3));
+		},
+		[ indiRankList ]
+	);
 
 	return (
 		<UserCardContainer>
 			{topThree.map(user => (
-				<UserCard to={`/rank/${user.rank}`} key={'top three' + user.name}>
+				<UserCard to={`/rank/${user.access_id}`} key={'top three' + user.nickname}>
 					<UserNameWrapper>
 						<div />
-						<p>{user.name}</p>
+						<p>{user.nickname}</p>
 						<span>순위 {user.rank}위</span>
 					</UserNameWrapper>
 
 					<CircleContainer>
 						<CircleWrapper>
 							<p>승률</p>
-							<CircleProgressProvider valueStart={0} valueEnd={user.winRatio}>
+							<CircleProgressProvider valueStart={0} valueEnd={Number(user.win_pct * 100)}>
 								{value => <CircularProgressbar value={value} text={`${value}%`} />}
 							</CircleProgressProvider>
 						</CircleWrapper>
@@ -31,7 +38,7 @@ const TopUsers = () => {
 
 						<CircleWrapper>
 							<p>리타이어율</p>
-							<CircleProgressProvider valueStart={0} valueEnd={user.retireRatio}>
+							<CircleProgressProvider valueStart={0} valueEnd={Number(user.retire_pct * 100)}>
 								{value => (
 									<CircularProgressbar value={value} text={`${value}%`} styles={retireRatioStyle} />
 								)}

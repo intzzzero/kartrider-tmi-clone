@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 
-const RankPageInfo = ({ rankingGuideToggle }) => {
+const RankPageInfo = ({ rankingGuideToggle, getIndiRank }) => {
 	const [ playMode, setPlayMode ] = useState(1);
 	const [ speedMode, setSpeedMode ] = useState(1);
 
@@ -19,7 +19,7 @@ const RankPageInfo = ({ rankingGuideToggle }) => {
 						<span>랭킹 산정기간 </span> 2020년 07월 01일 00:00:00 ~ 2020년 07월 31일 24:00:00
 					</p>
 					<p>
-						<span>최근 업데이트 </span> 2020년 07월 07일 11:06:53
+						<span>최근 업데이트 </span> 2020년 07월 17일 11:06:53
 					</p>
 				</div>
 				<div className='btnWrapper'>
