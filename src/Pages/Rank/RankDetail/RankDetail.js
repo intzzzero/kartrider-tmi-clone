@@ -26,6 +26,7 @@ const RankDetail = () => {
 			setRecord(res);
 			setCharacter(res.character);
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
