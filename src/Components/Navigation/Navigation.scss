@@ -3,7 +3,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  min-width: 1000px;
+  min-width: 1300px;
   overflow-y: hidden;
 
   .header {
@@ -16,11 +16,69 @@
     .header-inner {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
+      align-items: center;
       position: relative;
-      width: 1200px;
+      min-width: 1300px;
       height: 48px;
       margin: 0 auto;
+
+      .login-state {
+        display: flex;
+        flex-direction: row;
+
+        .login-and-logout-btn {
+          border: none;
+          outline: none;
+          color: black;
+          font-size: 20px;
+          font-weight: bold;
+          font-family: "Rajdhani";
+          background-color: transparent;
+          border: 2px solid black;
+          z-index: 100;
+          cursor: pointer;
+
+          @keyframes setRadius {
+            from {
+              border-radius: 0;
+            }
+            to {
+              border-radius: 30px;
+            }
+          }
+
+          &:hover {
+            background-color: black;
+            color: white;
+            animation: setRadius 0.8s ease-in-out forwards;
+          }
+        }
+
+        .welcome {
+          border: none;
+          outline: none;
+          color: black;
+          font-size: 15px;
+          font-weight: bold;
+          font-family: "Rajdhani";
+          background-color: transparent;
+          z-index: 100;
+          cursor: pointer;
+        }
+
+        .logout {
+          border: none;
+          outline: none;
+          color: black;
+          font-size: 15px;
+          font-weight: bold;
+          font-family: "Rajdhani";
+          background-color: transparent;
+          z-index: 100;
+          cursor: pointer;
+        }
+      }
 
       .logo-games {
         display: flex;
@@ -28,11 +86,6 @@
         align-items: center;
         width: 100px;
         height: 48px;
-        padding-left: 8px;
-
-        > img {
-          padding-right: 10px;
-        }
       }
 
       .logo-tmi {
@@ -44,27 +97,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
         width: 70px;
         height: 70px;
         margin: 10px;
         border-radius: 50%;
         border: 5px solid white;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 
-        > img {
+        img {
           width: 100%;
           height: 100%;
           background-color: black;
           border-radius: 50%;
+          box-shadow: 0px 0px 5px black;
         }
-      }
-
-      .login {
-        position: absolute;
-        right: 100px;
-        bottom: 40%;
-        font-family: 'Rajdhani';
-        font-size: 14px;
       }
     }
 
@@ -84,18 +133,27 @@
           flex-direction: row;
           align-items: center;
 
-          > ul {
+          ul {
             display: flex;
             flex-direction: row;
             align-items: center;
 
-            > li {
+            li {
               display: flex;
               align-items: center;
               justify-content: center;
-              width: 120px;
+              width: 160px;
               height: 55px;
               font-size: 14px;
+
+              &:last-child {
+                position: absolute;
+                right: 0;
+              }
+
+              svg {
+                width: 200px;
+              }
 
               .active {
                 display: flex;
@@ -103,19 +161,10 @@
                 justify-content: center;
 
                 .btn {
-                  display: inline-block;
-                  position: relative;
                   width: 100%;
                   max-width: 160px;
-                  margin: 0 auto 2em;
-                  margin: 0 20px 20px 0;
-                  line-height: 45px;
                   color: #fff;
                   font-size: 16px;
-                  font-weight: 400;
-                  text-decoration: none;
-                  text-transform: uppercase;
-                  vertical-align: middle;
                   cursor: pointer;
                 }
 
@@ -123,12 +172,9 @@
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  position: relative;
-                  top: 10px;
-                  font-weight: 100;
 
                   & svg {
-                    width: 90px;
+                    width: 100px;
                     height: 45px;
                     position: absolute;
                   }
@@ -147,8 +193,8 @@
 
                   &:hover rect {
                     stroke-width: 10;
-                    stroke-dasharray: 50, 155;
-                    stroke-dashoffset: 50;
+                    stroke-dasharray: 70, 160;
+                    stroke-dashoffset: 70;
                     transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
                   }
                 }

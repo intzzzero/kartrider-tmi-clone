@@ -1,32 +1,56 @@
 import React, { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { reFetchUsers } from '../../redux/reduxIndex';
+import SignInModal from '../../modal';
+import SignIn from '../../Pages/SignIn/SignIn';
+import SignUpModal from '../../modal';
+import SignUp from '../../Pages/Signup/Signup';
+import kakaoProfileImg from '../../Images/Resources/kakaoProfileImg.jpg';
 import './Navigation.scss';
 
-const navItem = [
-  { id: 0, name: 'HOME', url: '/main' },
-  { id: 1, name: 'RANK', url: '/rank' },
-  { id: 2, name: 'CART', url: '/cart' },
-  { id: 3, name: 'TRACK', url: '/track' },
-  { id: 4, name: 'LEAGUE', url: '/league' },
-  { id: 5, name: 'LAB', url: '/lab' },
-];
-
-const navView = navItem.map((data) => {
-  return (
-    <li key={data.id}>
-      <div className='active'>
-        <Link to={data.url} className='btn btn-1'>
-          {data.name}
-          <svg>
-            <rect x='0' y='0' fill='none' width='100%' height='100%' />
-          </svg>
-        </Link>
-      </div>
-    </li>
-  );
-});
-
 const Navigation = memo(() => {
+  const usersData = useSelector((state) => state.usersData);
+  const dispatch = useDispatch();
+  const [isModalActive, setIsModalActive] = useState(false);
+
+  useEffect(() => {
+    dispatch(reFetchUsers());
+  }, [dispatch]);
+
+  const navItem = [
+    { id: 0, name: 'HOME', url: '/main' },
+    { id: 1, name: 'RANK', url: '/rank' },
+    { id: 2, name: 'CART', url: '/cart' },
+    { id: 3, name: 'TRACK', url: '/track' },
+    { id: 4, name: 'LEAGUE', url: '/league' },
+    { id: 5, name: 'LAB', url: '/lab' },
+  ];
+
+  const navView = navItem.map((data) => {
+    return (
+      <li key={data.id}>
+        <div className='active'>
+          <Link to={data.url} className='btn btn-1'>
+            {data.name}
+            <svg>
+              <rect x='0' y='0' fill='none' width='100%' height='100%' />
+            </svg>
+          </Link>
+        </div>
+      </li>
+    );
+  });
+
+  const logOut = () => {
+    localStorage.clear();
+    window.location.reload(true);
+  };
+
+  const linkHandler = () => {
+    setIsModalActive(true);
+  };
+
   return (
     <div className='nav-container'>
       <div className='header'>
@@ -39,17 +63,56 @@ const Navigation = memo(() => {
           </Link>
 
           <div className='avatar'>
-            <img
-              alt='avatar'
-              src='https://lh3.googleusercontent.com/proxy/WW65AyaUQ6jSueAlwVpTccSse9tizDGrnTosAb8xG-joN9q12Da4IhmFI2T3P8RHpDeeKDMXUkScy92Qz3ZWM6_Gz4M4qjAGex_TTZZqC45DwVZbWC2885tS'
-            />
+            {localStorage.getItem('access_token') ? <img alt='avatar' src={usersData.profileImg} /> : <img alt='avatar' src={kakaoProfileImg} />}
           </div>
+
+          {localStorage.getItem('access_token') ? (
+            <div className='login-state'>
+              <button className='welcome'>{`안녕하세요! ${usersData.nickName}님`}</button>
+              <button className='login-and-logout-btn' onClick={logOut}>
+                로그아웃
+              </button>
+            </div>
+          ) : (
+            <div className='login-state'>
+              <button className='login-and-logout-btn' name='open' onClick={() => setIsModalActive(true)}>
+                로그인
+              </button>
+            </div>
+          )}
         </div>
+
+        {isModalActive && (
+          <SignUpModal>
+            <SignUp onClose={() => setIsModalActive(false)} usersData={usersData} />
+          </SignUpModal>
+        )}
 
         <div className='navigation'>
           <div className='navigation-inner'>
             <div className='navigation-tab'>
-              <ul>{navView}</ul>
+              <ul>
+                {navView}
+                {localStorage.getItem('access_token') ? (
+                  <li>
+                    {isModalActive && (
+                      <SignInModal>
+                        <SignIn onClose={() => setIsModalActive(false)} />
+                      </SignInModal>
+                    )}
+                    <div className='active' onClick={() => setIsModalActive(true)}>
+                      <Link to='' className='btn btn-1'>
+                        닉네임 연동
+                        <svg>
+                          <rect x='0' y='0' fill='none' width='100%' height='100%' />
+                        </svg>
+                      </Link>
+                    </div>
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+              </ul>
             </div>
           </div>
         </div>

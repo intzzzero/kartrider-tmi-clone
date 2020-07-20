@@ -1,16 +1,13 @@
 import React from 'react';
 
 const CircleProgressProvider = ({ valueStart, valueEnd, children }) => {
-	const [ value, setValue ] = React.useState(valueStart);
+  const [value, setValue] = React.useState(valueStart);
 
-	React.useEffect(
-		() => {
-			setValue(valueEnd);
-		},
-		[ valueEnd ]
-	);
+  React.useEffect(() => {
+    setValue(valueEnd);
+  }, [valueEnd]);
 
-	return children(value);
+  return children(value);
 };
 
 export default CircleProgressProvider;

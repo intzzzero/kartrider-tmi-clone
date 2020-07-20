@@ -1,8 +1,17 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUsers } from '../../redux/reduxIndex';
+import { Link, withRouter } from 'react-router-dom';
+import KakaoLogin from 'react-kakao-login';
 import './Signup.scss';
 
 const Signup = memo(({ onClose }) => {
+  const dispatch = useDispatch();
+
+  const resFail = err => {
+    alert('로그인에 실패하였습니다');
+  };
+
   return (
     <>
       <div className='blur'></div>
@@ -15,18 +24,19 @@ const Signup = memo(({ onClose }) => {
             <span>SNS 로그인</span>
             <div className='social-login'>
               <Link to=''>
-                <img
-                  className='kakao'
-                  alt='kakao'
-                  src='https://developers.kakao.com/tool/resource/static/img/button/login/full/en/kakao_login_large_wide.png'
-                />
-              </Link>
-              <Link to=''>
-                <img
-                  className='google'
-                  alt='google'
-                  src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQY8xYeJ0g9vNLBNDUMbVif_9f_vcgZ9Z_fpQ&usqp=CAU'
-                />
+                <KakaoLogin
+                  className='kakao-login'
+                  jsKey='6a7d9edc8ae52aab4e554e0485cd499f'
+                  onSuccess={() => dispatch(fetchUsers())}
+                  onFailure={resFail}
+                  cookiePolicy={'single_host_origin'}
+                >
+                  <img
+                    className='kakao'
+                    alt='kakao'
+                    src='https://developers.kakao.com/tool/resource/static/img/button/login/full/en/kakao_login_large_wide.png'
+                  />
+                </KakaoLogin>
               </Link>
             </div>
             <button name='close' onClick={onClose}>
@@ -39,4 +49,4 @@ const Signup = memo(({ onClose }) => {
   );
 });
 
-export default Signup;
+export default withRouter(Signup);

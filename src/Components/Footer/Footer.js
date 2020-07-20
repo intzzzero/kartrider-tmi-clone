@@ -1,13 +1,14 @@
 import React, { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.scss';
+import NexonLogo from '../../Images/Resources/NexonLogo.jpg';
 
 const Footer = memo(() => {
   return (
     <div className='footer-container'>
       <div className='footer'>
         <div className='logos'>
-          <img alt='logo' src='https://tmi.nexon.com/img/assets/lab_logo.svg' />
+          <img alt='logo' src={NexonLogo} />
           <span className='copy'>Data based on NEXON DEVELOPERS</span>
         </div>
         <div className='info'>
@@ -24,6 +25,7 @@ const Footer = memo(() => {
             <li>
               <Link to='https://career.nexon.com/'>채용</Link>
             </li>
+            <li>© Wecode (Front-end : 9기 박동경, 9기 정수영 | Back-end : 9기 문성원, 9기 백용진, 9기 정해빈) Corporation All Rights Reserved.</li>
           </ul>
         </div>
       </div>

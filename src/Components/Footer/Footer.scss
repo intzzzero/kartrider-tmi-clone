@@ -1,20 +1,22 @@
 .footer-container {
-  padding: 18px 0 17px 0;
+  display: flex;
+  min-width: 1300px;
+  padding: 18px 0 18px 0;
   background-color: black;
 
   .footer {
     display: flex;
     flex-direction: column;
-    width: 1200px;
     margin: 0 auto;
 
     .logos {
       display: flex;
       align-items: center;
+      padding-bottom: 16px;
 
-      > img {
-        width: 140px;
-        opacity: 1;
+      img {
+        width: 65px;
+        padding-right: 10px;
       }
 
       .copy {
@@ -33,14 +35,17 @@
     .info {
       display: flex;
 
-      > ul {
+      ul {
         display: flex;
         flex-direction: row;
 
-        > li {
+        li {
           padding-right: 10px;
+          color: white;
+          font-size: 15px;
+          font-weight: bold;
 
-          > a {
+          a {
             color: white;
             font-size: 15px;
             font-weight: bold;

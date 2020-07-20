@@ -1,22 +1,10 @@
 .main-content {
   display: flex;
 
-  .login {
-    position: absolute;
-    right: 155px;
-    top: 15px;
-    border: none;
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Rajdhani';
-    background-color: white;
-    z-index: 100;
-  }
-
   .content-inner {
     position: relative;
     width: 100%;
+    min-width: 1300px;
     margin-top: -55px;
     background-image: url(https://tmi.nexon.com/img/main_bg1.png);
     background-size: cover;
@@ -27,7 +15,7 @@
       display: flex;
       justify-content: center;
       position: relative;
-      width: 1200px;
+      width: 100%;
       margin: auto;
 
       .home-title {
@@ -36,11 +24,27 @@
         position: relative;
         height: 700px;
 
+        @keyframes topMove {
+          0% {
+            opacity: 0;
+            top: -20%;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            opacity: 1;
+            top: 0;
+          }
+        }
+
         .main-message {
           display: flex;
           flex-direction: column;
           align-items: center;
+          position: relative;
           padding-top: 200px;
+          animation: topMove 0.8s ease-in-out 0.5s forwards;
 
           > p {
             display: flex;
@@ -67,48 +71,59 @@
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
 
-            > p {
+            p {
               font-size: 18px;
               font-weight: 400;
             }
           }
         }
 
+        @keyframes bottomMove {
+          0% {
+            opacity: 0;
+            bottom: -5%;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            opacity: 1;
+            bottom: 30%;
+          }
+        }
+
         .search-form {
           display: flex;
           position: absolute;
-          width: 840px;
-          height: 67px;
-          top: 62%;
+          bottom: -100px;
           left: 50%;
+          width: 840px;
+          height: 40px;
           transform: translate(-50%, -50%);
-          transition: all 1s;
-          transition: width 0.5s;
-          background: transparent;
-          box-sizing: border-box;
-          border-radius: 33.5px;
+          border-radius: 35px;
           border: 4px solid #fff;
           padding: 8px;
           cursor: pointer;
+          animation: bottomMove 0.8s ease-in-out 0.5s forwards;
 
-          > form {
+          form {
             position: relative;
 
             .select {
               display: flex;
               position: absolute;
               top: 0;
-              padding-left: 30px;
+              padding-left: 45px;
 
-              > input {
+              input {
                 display: block;
                 border: none;
                 width: 600px;
-                height: 44px;
+                height: 40px;
                 color: #fff;
                 font-size: 24px;
                 font-weight: 400;
-                font-family: 'Rajdhani';
+                font-family: "Rajdhani";
                 padding: 0 25px;
                 background: transparent;
                 transition: opacity 0.5s;
@@ -119,7 +134,7 @@
                 }
               }
 
-              > label {
+              label {
                 display: block;
                 top: 7px;
                 width: 100px;
@@ -134,7 +149,7 @@
                 z-index: -1;
               }
 
-              > button {
+              button {
                 border: none;
                 font-size: 24px;
                 font-weight: 400;
@@ -142,24 +157,55 @@
                 background-color: transparent;
                 cursor: pointer;
 
-                > img {
-                  width: 45px;
+                img {
+                  width: 60px;
                 }
               }
             }
           }
         }
+
+        @keyframes rightMove {
+          0% {
+            opacity: 0;
+            left: -200px;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes leftMove {
+          0% {
+            opacity: 0;
+            left: 800px;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            opacity: 1;
+            left: 600px;
+          }
+        }
+
         .left-pic {
           position: relative;
+          left: 90px;
           bottom: 100px;
-          margin-left: -580px;
+          margin-left: -700px;
+          animation: rightMove 0.8s ease-in-out 0.5s forwards;
         }
 
         .right-pic {
           position: relative;
           bottom: 420px;
-          left: 565px;
+          left: 600px;
           margin-right: -250px;
+          animation: leftMove 0.8s ease-in-out 0.5s forwards;
         }
 
         .left-bg {
@@ -168,7 +214,7 @@
           height: 317px;
           bottom: 180px;
           left: 160px;
-          margin-left: -800px;
+          margin-left: -840px;
           background-image: url(https://tmi.nexon.com/img/main_left_bg.png);
           background-size: cover;
           background-position: 50%;
@@ -180,7 +226,7 @@
           height: 317px;
           top: 220px;
           right: 260px;
-          margin-right: -900px;
+          margin-right: -940px;
           background-image: url(https://tmi.nexon.com/img/main_right_bg.png);
           background-size: cover;
           background-position: 50%;
