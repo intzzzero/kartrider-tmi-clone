@@ -29,6 +29,22 @@
 - React-circular-progressbar
 - Fontawesome
 
+### Back-End
+- Python
+- Django
+- Beautifulsoup
+- Selenium
+- Requests
+- Pandas
+- Crontab
+- Design Pattern : Abstract factory
+- Bcrypt
+- JWT
+- Social Login : KAKAO
+- Mysql
+- CORS headers
+- AWS : EC2, RDS, S3
+
 ### 커뮤니케이션 및 버전관리
 - Postman
 - Slack
